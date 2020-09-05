@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const commentSchema = new mongoose.Schema({
 	userId: { type: mongoose.Types.ObjectId, unique: true },
 	body: String,
-	dateOfPublish: Date.now(),
+	dateOfPublish: { type: Date, default: Date.now },
 	rating: Number, // 0 -> 5
 	verifiedPurchase: Boolean
 });

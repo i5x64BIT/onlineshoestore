@@ -6,7 +6,7 @@ const shoeSchema = new mongoose.Schema({
 	displayPicture: mongoose.Schema.Types.ObjectId,
 	pictures: [ { type: mongoose.Schema.Types.ObjectId } ],
 	collections: [ { type: mongoose.Schema.Types.ObjectId, unique: true } ],
-	dateOfPublish: Date.now(),
+	dateOfPublish: { type: Date, default: Date.now },
 	comments: [
 		{
 			userId: { type: mongoose.Schema.Types.ObjectId, unique: true, ref: 'Comment' }

@@ -8,7 +8,7 @@ const purchaseSchema = new mongoose.Schema({
 			ammount: Number
 		}
 	],
-	dateOfPublish: Date.now(),
+	dateOfPublish: { type: Date, default: Date.now },
 	rating: Number, // 0 -> 5
 	verifiedPurchase: Boolean
 });
