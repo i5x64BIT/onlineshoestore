@@ -1,0 +1,27 @@
+{
+  "name": "onlineshoestore",
+  "version": "1.0.0",
+  "description": "Delivery by 26.9.2020!!!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i5x64BIT/onlineshoestore.git"
+  },
+  "author": "Tomer Vainshtein",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/i5x64BIT/onlineshoestore/issues"
+  },
+  "homepage": "https://github.com/i5x64BIT/onlineshoestore#readme",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.3",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.0.1"
+  }
+}
