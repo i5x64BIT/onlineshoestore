@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Shoe</title>
+</head>
+<body>
+    <form action="/shoes/" method="post">
+        <input type="text" name="shoe[name]" placeholder="Name of the shoe">
+        <textarea name="shoe[description]" cols="30" rows="10"></textarea>
+        <input type="file" name="shoe[pictures]" value="Shoe Pictures">
+        <!-- tick the display pic -->
+        <input type="text" name="shoe[collections]">
+        <input type="submit" value="Post the Shoe">
+    </form>
+</body>
+</html>
