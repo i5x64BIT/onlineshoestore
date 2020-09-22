@@ -4,34 +4,27 @@ const router = require('express').Router(),
 
 ///Index
 router.get('/', (req, res) => {
-	Shoe.find({}, (err, allShoes) => {
+	Collection.find({}, (err, allCollections) => {
 		if (err) {
 			return console.log(err);
 		}
-		return res.render('shoes/index.ejs', { shoes: allShoes });
+		return res.render('collections/index.ejs', { collections: allCollections });
 	});
 });
 //New
 router.get('/new', (req, res) => {
-	Collection.find({}, (err, foundColl) => {
-		if (err) {
-			return console.log(err);
-		}
-		console.log(foundColl);
-		return res.render('shoes/new.ejs', { foundColl: foundColl });
-	});
+	return res.render('collections/new.ejs');
 });
 //Create
 router.post('/', (req, res) => {
-	Shoe.create(
+	Collection.create(
 		{
 			name: req.body.name,
 			description: req.body.description,
-			price: req.body.price,
-			//pictures:,
-			collections: req.body.collections
+			//displayPicture: mongoose.Schema.Types.ObjectId,
+			items: []
 		},
-		(err, shoe) => {
+		(err, coll) => {
 			if (err) {
 				console.log(err);
 			} else {
@@ -42,11 +35,11 @@ router.post('/', (req, res) => {
 });
 //Show
 router.get('/:id', (req, res) => {
-	Shoe.findById(req.params.id, (err, shoe) => {
+	Shoe.findById(req.params.id, (err, coll) => {
 		if (err) {
 			return console.log(err);
 		}
-		return res.render('shoes/show.ejs', { shoe: shoe });
+		return res.render('collection/show.ejs', { collection: coll });
 	});
 });
 module.exports = router;

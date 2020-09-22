@@ -7,11 +7,17 @@
 </head>
 <body>
     <form action="/shoes/" method="post">
-        <input type="text" name="shoe[name]" placeholder="Name of the shoe">
-        <textarea name="shoe[description]" cols="30" rows="10"></textarea>
-        <input type="file" name="shoe[pictures]" value="Shoe Pictures">
+        <input type="text" name="name" placeholder="Name of the shoe">
+        <textarea name="description" cols="30" rows="10"></textarea>
+        <input type="file" name="pictures" value="Shoe Pictures">
         <!-- tick the display pic -->
-        <input type="text" name="shoe[collections]">
+        <select name="collections">
+            <% for(coll of foundColl) %>
+            <option value="<%= coll.id %>"><%= coll.name %></option>
+            <% } %>
+        </select>
+        <!-- listen for uesr click on + to add more collections-->
+        <input type="text" name="price">
         <input type="submit" value="Post the Shoe">
     </form>
 </body>

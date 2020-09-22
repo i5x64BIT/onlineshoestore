@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+</head>
+<body>
+    <h1>Our Collections</h1>
+    <a href="/collections/new">Add a new collection</a>
+    <% for( coll of collections ) { %>
+        <a href="/collection/<%= coll.id %>">
+            <div class="card">
+                <!-- <%= coll.image %> <br> -->
+                <%= coll.name %> <br>
+            </div>
+        </a>
+    <% } %>
+</body>
+</html>

@@ -5,6 +5,7 @@ const shoeSchema = new mongoose.Schema({
 	description: String,
 	displayPicture: mongoose.Schema.Types.ObjectId,
 	pictures: [ { type: mongoose.Schema.Types.ObjectId } ],
+	price: Number,
 	collections: [ { type: mongoose.Schema.Types.ObjectId, unique: true } ],
 	dateOfPublish: { type: Date, default: Date.now },
 	comments: [

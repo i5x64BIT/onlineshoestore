@@ -8,10 +8,11 @@
 <body>
     <h1>Our Shoes</h1>
     <a href="/shoes/new">Add a new shoe</a>
-    <% for( shoe in shoes ) { %>
+    <a href="/collections/new">Create a Collection</a>
+    <% for( shoe of shoes ) { %>
         <a href="/shoes/<%= shoe.id %>">
             <div class="card">
-                <%= shoe.image %> <br>
+                <!-- <%= shoe.image %> <br> -->
                 <%= shoe.name %> <br>
                 $<%= shoe.price %> <br>
             </div>
