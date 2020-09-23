@@ -35,11 +35,11 @@ router.post('/', (req, res) => {
 });
 //Show
 router.get('/:id', (req, res) => {
-	Shoe.findById(req.params.id, (err, coll) => {
+	Collection.findById(req.params.id).populate('items').exec((err, coll) => {
 		if (err) {
 			return console.log(err);
 		}
-		return res.render('collection/show.ejs', { collection: coll });
+		res.render('collections/show.ejs', { collection: coll });
 	});
 });
 module.exports = router;

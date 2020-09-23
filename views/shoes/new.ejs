@@ -12,9 +12,9 @@
         <input type="file" name="pictures" value="Shoe Pictures">
         <!-- tick the display pic -->
         <select name="collections">
-            <% for(coll of foundColl) %>
+            <% foundColl.forEach( (coll) => {  %>
             <option value="<%= coll.id %>"><%= coll.name %></option>
-            <% } %>
+            <% }) %>
         </select>
         <!-- listen for uesr click on + to add more collections-->
         <input type="text" name="price">

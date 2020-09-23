@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const purchaseSchema = new mongoose.Schema({
-	user: { type: mongoose.Types.ObjectId, unique: true },
+	user: { type: mongoose.Types.ObjectId, unique: true, ref: 'User' },
 	items: [
 		{
-			shoeId: { type: mongoose.Types.ObjectId, unique: true },
+			shoeId: { type: mongoose.Types.ObjectId, ref: 'Shoe' },
 			ammount: Number
 		}
 	],

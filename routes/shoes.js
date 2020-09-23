@@ -1,3 +1,5 @@
+const collection = require('../models/collection');
+
 const router = require('express').Router(),
 	Shoe = require('../models/shoe'),
 	Collection = require('../models/collection');
@@ -17,7 +19,6 @@ router.get('/new', (req, res) => {
 		if (err) {
 			return console.log(err);
 		}
-		console.log(foundColl);
 		return res.render('shoes/new.ejs', { foundColl: foundColl });
 	});
 });
@@ -35,6 +36,13 @@ router.post('/', (req, res) => {
 			if (err) {
 				console.log(err);
 			} else {
+				for (coll of shoe.collections) {
+					Collection.findById(coll._id, (err, coll) => {
+						if (err) console.log(err);
+						coll.items.push(shoe._id);
+						coll.save();
+					});
+				}
 				return res.redirect('/');
 			}
 		}
