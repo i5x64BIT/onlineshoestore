@@ -24,29 +24,20 @@ router.get('/new', (req, res) => {
 });
 //Create
 router.post('/', (req, res) => {
-	Shoe.create(
-		{
-			name: req.body.name,
-			description: req.body.description,
-			price: req.body.price,
-			//pictures:,
-			collections: req.body.collections
-		},
-		(err, shoe) => {
-			if (err) {
-				console.log(err);
-			} else {
-				for (coll of shoe.collections) {
-					Collection.findById(coll._id, (err, coll) => {
-						if (err) console.log(err);
-						coll.items.push(shoe._id);
-						coll.save();
-					});
-				}
-				return res.redirect('/');
+	Shoe.create(req.body.shoe, (err, shoe) => {
+		if (err) {
+			console.log(err);
+		} else {
+			for (coll of shoe.collections) {
+				Collection.findById(coll._id, (err, coll) => {
+					if (err) console.log(err);
+					coll.items.push(shoe._id);
+					coll.save();
+				});
 			}
+			return res.redirect('/');
 		}
-	);
+	});
 });
 //Show
 router.get('/:id', (req, res) => {

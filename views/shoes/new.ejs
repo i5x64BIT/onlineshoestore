@@ -7,18 +7,20 @@
 </head>
 <body>
     <form action="/shoes/" method="post">
-        <input type="text" name="name" placeholder="Name of the shoe">
-        <textarea name="description" cols="30" rows="10"></textarea>
-        <input type="file" name="pictures" value="Shoe Pictures">
+        <input type="text" name="shoe[name]" placeholder="Name of the shoe">
+        <textarea name="shoe[description]" cols="30" rows="10"></textarea>
+        <!--<input type="file" name="shoe[pictures]" value="Shoe Pictures"> -->
         <!-- tick the display pic -->
-        <select name="collections">
+        <select name="shoe[collections][0]" id="collectionSelect"
             <% foundColl.forEach( (coll) => {  %>
             <option value="<%= coll.id %>"><%= coll.name %></option>
             <% }) %>
         </select>
+        <input type="button" value="+" id="addColl">
         <!-- listen for uesr click on + to add more collections-->
-        <input type="text" name="price">
+        <input type="text" name="shoe[price]">
         <input type="submit" value="Post the Shoe">
+        <script src="/js/collections/addColl.js"></script>
     </form>
 </body>
 </html>
