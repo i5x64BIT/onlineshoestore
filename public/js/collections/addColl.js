@@ -8,11 +8,19 @@ const addSelector = () => {
 	else lastSelect = document.getElementById('collectionSelect' + currentSelector);
 
 	let newSelector = document.createElement('select');
+	currentSelector++;
+	newSelector.id = 'collectionSelect' + currentSelector;
+	newSelector.name = `shoe[collections][${currentSelector}]`;
 	lastSelect.appendChild(newSelector);
 
-	foundColl.forEach((coll) => {
-		newSelector.appendChild((document.createElement('option').value = coll.name));
-	});
+	for (child of lastSelect.children) {
+		if (child.text == undefined) continue;
+		option = document.createElement('option');
+		option.text = child.text;
+		option.value = child.value;
+		newSelector.appendChild(option);
+	}
+	document.querySelector('.selectors').appendChild(newSelector); //selector div
 };
 
 button.addEventListener('mousedown', addSelector, false);
